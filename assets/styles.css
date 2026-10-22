@@ -8,3 +8,6 @@
 .field input:disabled{background:#f2f4f7;color:#929cab}
 .detail-main>.empty{padding:27px}
 @media(max-width:610px){.topbar .top-actions .btn-outline{display:none}.topbar .btn-primary{font-size:12px}.project-footer{flex-wrap:wrap}}
+
+/* M1.2: update prompt is outside the SPA render tree and never overwrites forms. */
+.version-update-notice{position:fixed;z-index:18;right:24px;bottom:76px;max-width:540px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:15px 17px;background:#fff9eb;border:1px solid #f0d79c;border-radius:12px;box-shadow:0 10px 40px #19375d30;color:#54421e}.version-update-copy{flex:1;min-width:200px;display:flex;flex-direction:column;gap:5px;line-height:1.5}.version-update-copy strong{font-size:14px}.version-update-copy span{font-size:12px;color:#795f2e}.version-update-actions{display:flex;gap:8px}@media(max-width:620px){.version-update-notice{left:70px;right:10px;bottom:78px;padding:10px}.version-update-actions{width:100%}}

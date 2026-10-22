@@ -1,8 +1,8 @@
 // Offline cache for this app only. Repository-path-scoped key avoids other Pages apps.
 const SCOPE_KEY = self.registration.scope.replace(/[^a-z0-9]/gi, '_');
 const CACHE_PREFIX = 'personalworkspace-';
-const CACHE_NAME = CACHE_PREFIX + 'm11-v1-' + SCOPE_KEY;
-const ASSETS = ['./', './index.html', './assets/styles.css', './assets/app.js', './assets/favicon.svg', './manifest.webmanifest'];
+const CACHE_NAME = CACHE_PREFIX + 'm12-v1-' + SCOPE_KEY;
+const ASSETS = ['./', './index.html', './assets/styles.css?v=m12', './assets/app.js?v=m12', './assets/update.js?v=m12', './assets/favicon.svg', './manifest.webmanifest', './version.json'];
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
 });
@@ -14,7 +14,7 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET' || new URL(event.request.url).origin !== self.location.origin) return;
   event.respondWith(
-    fetch(event.request).then(response => {
+    fetch(event.request, {cache: 'no-store'}).then(response => {
       if (response.ok) {
         const copy = response.clone();
         event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy)));
