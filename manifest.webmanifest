@@ -1,0 +1,1 @@
+{"name":"个人工作台","short_name":"工作台","description":"离线优先的个人工作与生活管理","start_url":"./index.html","scope":"./","display":"standalone","background_color":"#f5f7fb","theme_color":"#111c31","icons":[{"src":"assets/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
