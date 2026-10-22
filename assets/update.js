@@ -1,8 +1,8 @@
-/* M1.2.1 website update notifier. Does not read, alter or delete any business data. */
+/* M1.3 website update notifier. Does not read, alter or delete any business data. */
 (() => {
   'use strict';
   if (!/^https?:$/.test(location.protocol)) return;
-  const VERSION = 'M1.2.1';
+  const VERSION = 'M1.3';
   const bannerRoot = document.getElementById('version-update-root');
   if (!bannerRoot) return;
   let checking = false;
