@@ -1,7 +1,7 @@
 // Offline cache for this app only. Repository-path-scoped key avoids other Pages apps.
 const SCOPE_KEY = self.registration.scope.replace(/[^a-z0-9]/gi, '_');
-const CACHE_PREFIX = 'personalworkspace-m1-v2-';
-const CACHE_NAME = CACHE_PREFIX + SCOPE_KEY;
+const CACHE_PREFIX = 'personalworkspace-';
+const CACHE_NAME = CACHE_PREFIX + 'm11-v1-' + SCOPE_KEY;
 const ASSETS = ['./', './index.html', './assets/styles.css', './assets/app.js', './assets/favicon.svg', './manifest.webmanifest'];
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
